@@ -33,7 +33,6 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-gruvbox)
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -42,7 +41,15 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+(add-hook! '+doom-dashboard-functions :append
+  (insert "\n" (+doom-dashboard--center +doom-dashboard--width "            “Debugging is twice as hard as writing the code in
+             the first place. Therefore, if you write the code as cleverly as
+             possible, you are, by definition, not smart enough to debug it.”
 
+                                — Brian W. Kernighan.")))
+
+
+(setq doom-fallback-buffer-name "*dashboard*")
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -97,3 +104,4 @@
 (map! :leader
       :desc "emms"
       "e m" #'emms)
+(setq org-agenda-files '("~/Documents/College/Semester-6/TODOs/"))
