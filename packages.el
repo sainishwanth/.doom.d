@@ -52,3 +52,6 @@
 (package! elcord)
 (package! tldr)
 (package! org-bullets)
+(package! bison-mode)
+(package! mermaid-mode)
+(package! ytdl)
