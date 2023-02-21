@@ -58,7 +58,6 @@
                                 — Brian W. Kernighan.")))
 
 
-(setq doom-fallback-buffer-name "*dashboard*")
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -100,6 +99,12 @@
     org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
 )
 
+(display-time-mode)
+(display-battery-mode)
+(require 'elcord)
+(elcord-mode)
+(emms-add-playlist-directory-tree "~/Music")
+
 (require 'org-bullets)(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-to-list 'auto-mode-alist '("\\.\\(cbr\\)\\'" . archive-mode))
 (map! :leader
@@ -113,3 +118,71 @@
 (map! :leader
       :desc "emms"
       "e m" #'emms)
+(map! :leader
+      :desc "emms"
+      "e r" #'emms-random)
+
+(map! :leader
+      :desc "emms"
+      "e n" #'emms-next)
+(map! :leader
+      :desc "emms"
+      "e P" #'emms-pause)
+
+(map! :leader
+      :desc "emms"
+      "e p" #'emms-pause)
+
+(map! :leader
+      :desc "emms"
+      "e s" #'emms-start)
+
+
+;;(use-package! eaf
+;;  :load-path "/Users/sainishwanth/.emacs.d/site-lisp/emacs-application-framework"
+;;  :init
+;;  :custom
+;;  (eaf-browser-continue-where-left-off t)
+;;  (eaf-browser-enable-adblocker t)
+;;  (browse-url-browser-function 'eaf-open-browser) ;; Make EAF Browser my default browser
+;;  :config
+;;  (defalias 'browse-web #'eaf-open-browser)
+;;
+;;  (require 'eaf-file-manager)
+;;  (require 'eaf-music-player)
+;;  (require 'eaf-image-viewer)
+;;  (require 'eaf-camera)
+;;  (require 'eaf-airshare)
+;;  (require 'eaf-terminal)
+;;  (require 'eaf-markdown-previewer)
+;;  (require 'eaf-video-player)
+;;  (require 'eaf-file-sender)
+;;  (require 'eaf-pdf-viewer)
+;;  (require 'eaf-mindmap)
+;;  (require 'eaf-netease-cloud-music)
+;;  (require 'eaf-jupyter)
+;;  (require 'eaf-org-previewer)
+;;  (require 'eaf-system-monitor)
+;;  (require 'eaf-rss-reader)
+;;  (require 'eaf-file-browser)
+;;  (require 'eaf-browser)
+;;  (require 'eaf-org)
+;;  (require 'eaf-mail)
+;;  (require 'eaf-git)
+;;  (when (display-graphic-p)
+;;    (require 'eaf-all-the-icons))
+;;
+;;  (require 'eaf-evil)
+;;  (define-key key-translation-map (kbd "SPC")
+;;    (lambda (prompt)
+;;      (if (derived-mode-p 'eaf-mode)
+;;          (pcase eaf--buffer-app-name
+;;            ("browser" (if  (string= (eaf-call-sync "call_function" eaf--buffer-id "is_focus") "True")
+;;                           (kbd "SPC")
+;;                         (kbd eaf-evil-leader-key)))
+;;            ("pdf-viewer" (kbd eaf-evil-leader-key))
+;;            ("image-viewer" (kbd eaf-evil-leader-key))
+;;            (_  (kbd "SPC")))
+;;        (kbd "SPC")))))
+
+(setq fancy-splash-image "/Users/sainishwanth/.doom.d/doom-emacs-splash/svg/doom/doomEmacsGruvbox.svg")

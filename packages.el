@@ -55,3 +55,8 @@
 (package! bison-mode)
 (package! mermaid-mode)
 (package! ytdl)
+;;(package! eaf-browser
+;;  :recipe (:host github
+;;           :repo "emacs-eaf/eaf-browser"
+;;           :files ("*")
+;;           :pre-build ("npm" "install")))
