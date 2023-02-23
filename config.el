@@ -99,6 +99,8 @@
     org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
 )
 
+(setq org-todo-keywords '((sequence "TODO(t)" "INPROGRESS(i)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+
 (display-time-mode)
 (display-battery-mode)
 (require 'elcord)
@@ -127,11 +129,11 @@
       "e n" #'emms-next)
 (map! :leader
       :desc "emms"
-      "e P" #'emms-pause)
+      "e x" #'emms-pause)
 
 (map! :leader
       :desc "emms"
-      "e p" #'emms-pause)
+      "e p" #'emms-previous)
 
 (map! :leader
       :desc "emms"
