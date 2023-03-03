@@ -7,6 +7,21 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 
+;;(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+;;(use-package dashboard
+;;  :ensure t
+;;  :config
+;;  (dashboard-setup-startup-hook))
+;;(setq doom-fallback-buffer-name "*dashboard*")
+;;(setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
+;;(setq dashboard-items '((recents  . 5)
+;;                        (bookmarks . 5)
+;;                        (projects . 5)
+;;                        (agenda . 5)
+;;                        (registers . 5)))
+;;(setq doom-fallback-buffer-name "*dashboard*")
+;;(require 'dashboard)
+;;(dashboard-setup-startup-hook)
 ;;(use-package dashboard
 ;;  :ensure t
 ;;  :config
@@ -41,7 +56,7 @@
 ;; `load-theme' function. This is the default:
 
 
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-one)
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -49,13 +64,15 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
+(setq menu-bar-mode nil
+      tool-bar-mode nil)
 
-(add-hook! '+doom-dashboard-functions :append
-  (insert "\n" (+doom-dashboard--center +doom-dashboard--width "            “Debugging is twice as hard as writing the code in
-             the first place. Therefore, if you write the code as cleverly as
-             possible, you are, by definition, not smart enough to debug it.”
-
-                                — Brian W. Kernighan.")))
+;; (add-hook! '+doom-dashboard-functions :append
+;; ;;   (insert "\n" (+doom-dashboard--center +doom-dashboard--width "            “Debugging is twice as hard as writing the code in
+;; ;;              the first place. Therefore, if you write the code as cleverly as
+;; ;;              possible, you are, by definition, not smart enough to debug it.”
+;;
+;; ;;                                 — Brian W. Kernighan.")))
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -105,7 +122,6 @@
 (display-battery-mode)
 (require 'elcord)
 (elcord-mode)
-(emms-add-playlist-directory-tree "~/Music")
 
 (require 'org-bullets)(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-to-list 'auto-mode-alist '("\\.\\(cbr\\)\\'" . archive-mode))
@@ -118,27 +134,29 @@
       "j" #'centaur-tabs-backward)
 
 (map! :leader
-      :desc "emms"
+      :desc "emms-open"
       "e m" #'emms)
 (map! :leader
-      :desc "emms"
+      :desc "emms-random"
       "e r" #'emms-random)
 
 (map! :leader
-      :desc "emms"
+      :desc "emms-next"
       "e n" #'emms-next)
 (map! :leader
-      :desc "emms"
+      :desc "emms-pause"
       "e x" #'emms-pause)
 
 (map! :leader
-      :desc "emms"
+      :desc "emms-previous"
       "e p" #'emms-previous)
 
 (map! :leader
-      :desc "emms"
+      :desc "emms-start"
       "e s" #'emms-start)
-
+(map! :leader
+      :desc "Xwidget-Browser"
+      "w x" #'xwidget-webkit-browse-url)
 
 ;;(use-package! eaf
 ;;  :load-path "/Users/sainishwanth/.emacs.d/site-lisp/emacs-application-framework"
@@ -187,4 +205,5 @@
 ;;            (_  (kbd "SPC")))
 ;;        (kbd "SPC")))))
 
-(setq fancy-splash-image "/Users/sainishwanth/.doom.d/doom-emacs-splash/svg/doom/doomEmacsGruvbox.svg")
+;;(setq fancy-splash-image "/Users/sainishwanth/.doom.d/doom-emacs-splash/svg/doom/doomEmacsDoomOne.svg")
+(add-to-list 'default-frame-alist '(undecorated . t))

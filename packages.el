@@ -55,6 +55,7 @@
 (package! bison-mode)
 (package! mermaid-mode)
 (package! ytdl)
+(package! dashboard)
 ;;(package! eaf-browser
 ;;  :recipe (:host github
 ;;           :repo "emacs-eaf/eaf-browser"

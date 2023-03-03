@@ -81,12 +81,12 @@
        vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       syntax              ; tasing you for every semicolon you forget
-       ;; (spell +flyspell)
-                                        ; tasing you for misspelling mispelling
+       ;; syntax              ; tasing you for every semicolon you forget
+       ;;(spell +flyspell)
+       ;;                                 ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
-       :tools
+       ;; :tools
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
        debugger          ; FIXME stepping through code, to help you add bugs

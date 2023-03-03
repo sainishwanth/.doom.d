@@ -6,7 +6,7 @@
  '(org-agenda-files
    '("~/Documents/College/Semester-6/Notes/Org Files/TODO-Semester6.org"))
  '(package-selected-packages
-   '(all-the-icons projectile page-break-lines evil-mu4e mu4easy markdown-preview-eww eww-lnum helm-eww svg-lib pdf-tools elpy ob-prolog fancy-battery battery-notifier nnreddit \. lex org-kindle ox-epub grass-mode chess)))
+   '(dashboard elpy svg-lib persist battery-notifier projectile pdf-tools ts fancy-battery ox-epub mu4easy helm-eww transient eww-lnum f markdown-preview-eww grass-mode page-break-lines all-the-icons evil-mu4e org-kindle ob-prolog nnreddit lex)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
