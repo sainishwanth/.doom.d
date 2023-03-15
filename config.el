@@ -111,7 +111,6 @@
 (setq doom-themes-treemacs-theme "doom-colors")
 
 ;;(setq doom-theme 'doom-wilmersdorf)
-(setq emms-source-file-default-directory "~/Music/")
 (setq
     org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
 )
@@ -120,8 +119,6 @@
 
 (display-time-mode)
 (display-battery-mode)
-(require 'elcord)
-(elcord-mode)
 
 (require 'org-bullets)(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-to-list 'auto-mode-alist '("\\.\\(cbr\\)\\'" . archive-mode))
@@ -206,4 +203,45 @@
 ;;        (kbd "SPC")))))
 
 ;;(setq fancy-splash-image "/Users/sainishwanth/.doom.d/doom-emacs-splash/svg/doom/doomEmacsDoomOne.svg")
-(add-to-list 'default-frame-alist '(undecorated . t))
+;;(add-to-list 'default-frame-alist '(undecorated . t))
+(use-package org-roam
+          :ensure t
+          :init
+          (setq org-roam-v2-ack t)
+          :custom
+          (org-roam-directory "~/Documents/College/Semester-6/Notes/Org-Files/")
+          :bind
+          (("C-c r l" . org-roam-buffer-toggle)
+           ("C-c r f" . org-roam-node-find)
+           ("C-c r i" . org-roam-node-insert))
+          :config
+          (org-roam-setup))
+
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+;; Set the title
+(setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
+;; Set the banner
+(setq dashboard-startup-banner 1)
+;; Value can be
+;; - nil to display no banner
+;; - 'official which displays the official emacs logo
+;; - 'logo which displays an alternative emacs logo
+;; - 1, 2 or 3 which displays one of the text banners
+;; - "path/to/your/image.gif", "path/to/your/image.png" or "path/to/your/text.txt" which displays whatever gif/image/text you would prefer
+;; - a cons of '("path/to/your/image.png" . "path/to/your/text.txt")
+
+;; Content is not centered by default. To center, set
+(setq dashboard-center-content t)
+
+;; To disable shortcut "jump" indicators for each section, set
+(setq dashboard-show-shortcuts nil)
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        (projects . 5)
+                        (agenda . 5)
+                        (registers . 5)))
+(setq org-agenda-files '("/Users/sainishwanth/Documents/College/Semester-6/Notes/Org-Files/"))
