@@ -7,27 +7,6 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 
-;;(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-;;(use-package dashboard
-;;  :ensure t
-;;  :config
-;;  (dashboard-setup-startup-hook))
-;;(setq doom-fallback-buffer-name "*dashboard*")
-;;(setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
-;;(setq dashboard-items '((recents  . 5)
-;;                        (bookmarks . 5)
-;;                        (projects . 5)
-;;                        (agenda . 5)
-;;                        (registers . 5)))
-;;(setq doom-fallback-buffer-name "*dashboard*")
-;;(require 'dashboard)
-;;(dashboard-setup-startup-hook)
-;;(use-package dashboard
-;;  :ensure t
-;;  :config
-;;  (dashboard-setup-startup-hook))
-;;(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-;;
 ;;(setq user-full-name "Sai Nishwanth Raj"
 ;;      user-mail-address "Sainishwanthraj@gmail.com")
 
@@ -57,13 +36,13 @@
 
 
 (setq doom-theme 'doom-one)
-;; This determines the style of line numbers in effect. If set to `nil', line
+;; This determines therstyle of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Documents/College/Semester-6/Notes/Org-Files/")
 (setq menu-bar-mode nil
       tool-bar-mode nil)
 
@@ -155,55 +134,6 @@
       :desc "Xwidget-Browser"
       "w x" #'xwidget-webkit-browse-url)
 
-;;(use-package! eaf
-;;  :load-path "/Users/sainishwanth/.emacs.d/site-lisp/emacs-application-framework"
-;;  :init
-;;  :custom
-;;  (eaf-browser-continue-where-left-off t)
-;;  (eaf-browser-enable-adblocker t)
-;;  (browse-url-browser-function 'eaf-open-browser) ;; Make EAF Browser my default browser
-;;  :config
-;;  (defalias 'browse-web #'eaf-open-browser)
-;;
-;;  (require 'eaf-file-manager)
-;;  (require 'eaf-music-player)
-;;  (require 'eaf-image-viewer)
-;;  (require 'eaf-camera)
-;;  (require 'eaf-airshare)
-;;  (require 'eaf-terminal)
-;;  (require 'eaf-markdown-previewer)
-;;  (require 'eaf-video-player)
-;;  (require 'eaf-file-sender)
-;;  (require 'eaf-pdf-viewer)
-;;  (require 'eaf-mindmap)
-;;  (require 'eaf-netease-cloud-music)
-;;  (require 'eaf-jupyter)
-;;  (require 'eaf-org-previewer)
-;;  (require 'eaf-system-monitor)
-;;  (require 'eaf-rss-reader)
-;;  (require 'eaf-file-browser)
-;;  (require 'eaf-browser)
-;;  (require 'eaf-org)
-;;  (require 'eaf-mail)
-;;  (require 'eaf-git)
-;;  (when (display-graphic-p)
-;;    (require 'eaf-all-the-icons))
-;;
-;;  (require 'eaf-evil)
-;;  (define-key key-translation-map (kbd "SPC")
-;;    (lambda (prompt)
-;;      (if (derived-mode-p 'eaf-mode)
-;;          (pcase eaf--buffer-app-name
-;;            ("browser" (if  (string= (eaf-call-sync "call_function" eaf--buffer-id "is_focus") "True")
-;;                           (kbd "SPC")
-;;                         (kbd eaf-evil-leader-key)))
-;;            ("pdf-viewer" (kbd eaf-evil-leader-key))
-;;            ("image-viewer" (kbd eaf-evil-leader-key))
-;;            (_  (kbd "SPC")))
-;;        (kbd "SPC")))))
-
-;;(setq fancy-splash-image "/Users/sainishwanth/.doom.d/doom-emacs-splash/svg/doom/doomEmacsDoomOne.svg")
-;;(add-to-list 'default-frame-alist '(undecorated . t))
 (use-package org-roam
           :ensure t
           :init
@@ -216,32 +146,41 @@
            ("C-c r i" . org-roam-node-insert))
           :config
           (org-roam-setup))
-
-(use-package dashboard
+;; Dashboard.el config
+;;(use-package dashboard
+;;  :ensure t
+;;  :config
+;;  (dashboard-setup-startup-hook))
+;;(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+;;;; Set the title
+;;(setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
+;;;; Set the banner
+;;(setq dashboard-startup-banner 1)
+;;;; Value can be
+;;;; - nil to display no banner
+;;;; - 'official which displays the official emacs logo
+;;;; - 'logo which displays an alternative emacs logo
+;;;; - 1, 2 or 3 which displays one of the text banners
+;;;; - "path/to/your/image.gif", "path/to/your/image.png" or "path/to/your/text.txt" which displays whatever gif/image/text you would prefer
+;;;; - a cons of '("path/to/your/image.png" . "path/to/your/text.txt")
+;;
+;;;; Content is not centered by default. To center, set
+;;(setq dashboard-center-content t)
+;;
+;;;; To disable shortcut "jump" indicators for each section, set
+;;(setq dashboard-show-shortcuts nil)
+;;(setq dashboard-items '((recents  . 5)
+;;                        (bookmarks . 5)
+;;                        (projects . 5)
+;;                        (agenda . 5)
+;;                        (registers . 5)))
+(setq org-agenda-files '(directory-files-recursively "~/Documents/College/Semester-6/Notes/Org-Files/"))
+(use-package lsp-pyright
   :ensure t
-  :config
-  (dashboard-setup-startup-hook))
-(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
-;; Set the title
-(setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
-;; Set the banner
-(setq dashboard-startup-banner 1)
-;; Value can be
-;; - nil to display no banner
-;; - 'official which displays the official emacs logo
-;; - 'logo which displays an alternative emacs logo
-;; - 1, 2 or 3 which displays one of the text banners
-;; - "path/to/your/image.gif", "path/to/your/image.png" or "path/to/your/text.txt" which displays whatever gif/image/text you would prefer
-;; - a cons of '("path/to/your/image.png" . "path/to/your/text.txt")
-
-;; Content is not centered by default. To center, set
-(setq dashboard-center-content t)
-
-;; To disable shortcut "jump" indicators for each section, set
-(setq dashboard-show-shortcuts nil)
-(setq dashboard-items '((recents  . 5)
-                        (bookmarks . 5)
-                        (projects . 5)
-                        (agenda . 5)
-                        (registers . 5)))
-(setq org-agenda-files '("/Users/sainishwanth/Documents/College/Semester-6/Notes/Org-Files/"))
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))
+  (setq lsp-pyright-use-library-code-for-types t) ;; set this to nil if getting too many false positive type errors
+  (setq lsp-pyright-stub-path (concat (getenv "HOME") "/src/python-type-stubs")) ;; example
+;;(after! doom-themes
+;;  (load-theme 'doom-nano-dark t))

@@ -81,12 +81,12 @@
        vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       ;; syntax              ; tasing you for every semicolon you forget
+       syntax              ; tasing you for every semicolon you forget
        ;;(spell +flyspell)
        ;;                                 ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
-       ;; :tools
+       :tools
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
        debugger          ; FIXME stepping through code, to help you add bugs
@@ -101,9 +101,9 @@
        magit             ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
        pass              ; password manager for nerds
-       ;;pdf               ; pdf enhancements
+       pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
-       ;;rgb               ; creating color strings
+       rgb               ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        tmux              ; an API for interacting with tmux
@@ -167,7 +167,7 @@
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       ;;(rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       (rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
        sh                ; she sells {ba,z,fi}sh shells on the C xor

@@ -79,3 +79,7 @@
           (:host github
                  :repo "dalanicolai/image-roll.el"))
 (package! org-roam)
+(package! good-scroll)
+(package! rust-mode)
+(package! lsp-pyright)
+(package! smex)
