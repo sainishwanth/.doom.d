@@ -42,7 +42,6 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/College/Semester-6/Notes/Org-Files/")
 (setq menu-bar-mode nil
       tool-bar-mode nil)
 
@@ -130,10 +129,6 @@
 (map! :leader
       :desc "emms-start"
       "e s" #'emms-start)
-(map! :leader
-      :desc "Xwidget-Browser"
-      "w x" #'xwidget-webkit-browse-url)
-
 (use-package org-roam
           :ensure t
           :init
@@ -174,7 +169,6 @@
 ;;                        (projects . 5)
 ;;                        (agenda . 5)
 ;;                        (registers . 5)))
-(setq org-agenda-files '(directory-files-recursively "~/Documents/College/Semester-6/Notes/Org-Files/"))
 (use-package lsp-pyright
   :ensure t
   :hook (python-mode . (lambda ()
