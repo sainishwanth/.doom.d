@@ -60,11 +60,6 @@
 (package! auctex)
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
-;;(package! eaf-browser
-;;  :recipe (:host github
-;;           :repo "emacs-eaf/eaf-browser"
-;;           :files ("*")
-;;           :pre-build ("npm" "install")))
 (package! pdf-tools :recipe
           (:host github
                  :repo "dalanicolai/pdf-tools"
@@ -83,3 +78,4 @@
 (package! rust-mode)
 (package! lsp-pyright)
 (package! smex)
+(package! avy)

@@ -35,7 +35,7 @@
 ;; `load-theme' function. This is the default:
 
 
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-tomorrow-night)
 ;; This determines therstyle of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -45,12 +45,10 @@
 (setq menu-bar-mode nil
       tool-bar-mode nil)
 
-;; (add-hook! '+doom-dashboard-functions :append
-;; ;;   (insert "\n" (+doom-dashboard--center +doom-dashboard--width "            “Debugging is twice as hard as writing the code in
-;; ;;              the first place. Therefore, if you write the code as cleverly as
-;; ;;              possible, you are, by definition, not smart enough to debug it.”
-;;
-;; ;;                                 — Brian W. Kernighan.")))
+ (add-hook! '+doom-dashboard-functions :append (insert "\n" (+doom-dashboard--center +doom-dashboard--width "               “Debugging is twice as hard as writing the code.
+                Therefore, if you write the code as cleverly as possible, you are,
+                by definition, not smart enough to debug it.”
+                — Brian W. Kernighan.")))
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -178,3 +176,15 @@
   (setq lsp-pyright-stub-path (concat (getenv "HOME") "/src/python-type-stubs")) ;; example
 ;;(after! doom-themes
 ;;  (load-theme 'doom-nano-dark t))
+(setq display-line-numbers-type 'relative)
+(require 'evil-snipe)
+(evil-snipe-mode +1)
+(evil-snipe-override-mode +1)
+(solaire-global-mode +1)
+(setq frame-resize-pixelwise 5)
+(require 'evil-multiedit)
+(evil-multiedit-default-keybinds)
+(save-place-mode 1)
+(setq use-dialog-box nil)
+(global-auto-revert-mode 1)
+(setq global-auto-revert-non-file-buffers t)
